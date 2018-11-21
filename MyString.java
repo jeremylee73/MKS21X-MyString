@@ -36,4 +36,20 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     }
     return ans;
   }
+
+  public int compareTo(CharSequence o){
+    int shorter = 0;
+    if (this.length() < o.length()){
+      shorter = this.length();
+    } else{
+      shorter = o.length();
+    }
+
+    for (int i=0; i<shorter; i++){
+      if (this.charAt(i) != o.charAt(i)){
+        return this.charAt(i) - o.charAt(i);
+      }
+    }
+    return this.length() - o.length();
+  }
 }
